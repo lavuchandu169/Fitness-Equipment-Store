@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Equipment Store</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styles */
+        [data-role="header"] {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Search input styles */
+        #search {
+            width: calc(100% - 20px);
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+
+        /* Item list styles */
+        #itemList li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Item details styles */
+        #itemDetails {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #itemDetails h2 {
+            margin-top: 0;
+        }
+
+        #itemDetails p {
+            margin-bottom: 10px;
+        }
+
+        #itemDetails img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div data-role="page" id="homepage">
+    <div data-role="header">
+        <h1>Fitness Equipment Store</h1>
+    </div>
+    <div data-role="content">
+        <input type="search" id="search" placeholder="Search items...">
+        <ul id="itemList" data-role="listview" data-inset="true">
+            <!-- Items will be dynamically added here -->
+            <li><a href="#" data-id="1">Treadmill</a></li>
+            <li><a href="#" data-id="2">Exercise Bike</a></li>
+            <li><a href="#" data-id="3">Dumbles 5kg</a></li>
+            <!-- Add more items here -->
+        </ul>
+    </div>
+</div>
+
+<div data-role="page" id="itemPage">
+    <div data-role="header">
+        <a href="#homepage" data-icon="back">Back</a>
+        <h1>Item Details</h1>
+    </div>
+    <div data-role="content" id="itemDetails">
+        <!-- Item details will be dynamically added here -->
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var items = [
+            { id: 1, name: "Treadmill", price: 999, rating: 4.5, details: "Lorem ipsum...", images: ["treadmill1.jpg", "treadmill2.jpg"], videos: [] },
+            { id: 2, name: "Exercise Bike", price: 799, rating: 4.0, details: "Lorem ipsum...", images: ["bike1.jpg", "bike2.jpg"], videos: [] },
+            { id: 3, name: "dumbles5kg", price: 150, rating: 4.5, details: "Lorem ipsum...", images: ["dumb1.jpg", "dumb2.jpg"], videos: [] }
+            // Add more items here
+        ];
+
+        $("#itemList").on("click", "a", function() {
+            var itemId = $(this).data("id");
+            var item = items.find(item => item.id === itemId);
+            if (item) {
+                var imagesHtml = item.images.map(image => `<img src="${image}" alt="${item.name}">`).join('');
+                $("#itemDetails").html(`
+                    <h2>${item.name}</h2>
+                    <p>Price: $${item.price}</p>
+                    <p>Rating: ${item.rating}</p>
+                    <p>${item.details}</p>
+                    <div>
+                        <h3>Images</h3>
+                        ${imagesHtml}
+                    </div>
+                `);
+                $.mobile.changePage("#itemPage");
+            }
+        });
+
+        $("#search").on("keyup", function() {
+            var query = $(this).val().toLowerCase();
+            var filteredItems = items.filter(item => item.name.toLowerCase().includes(query));
+            displayItems(filteredItems);
+        });
+    });
+</script>
+
+</body>
+</html>
