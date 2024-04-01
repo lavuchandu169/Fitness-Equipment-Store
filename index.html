@@ -5,64 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Equipment Store</title>
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <style>
-        /* Global styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header styles */
-        [data-role="header"] {
-            background-color: #007bff;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        /* Search input styles */
-        #search {
-            width: calc(100% - 20px);
-            margin: 10px auto;
-            padding: 10px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-        }
-
-        /* Item list styles */
-        #itemList li {
-            background-color: #fff;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Item details styles */
-        #itemDetails {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        #itemDetails h2 {
-            margin-top: 0;
-        }
-
-        #itemDetails p {
-            margin-bottom: 10px;
-        }
-
-        #itemDetails img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -72,19 +15,32 @@
     </div>
     <div data-role="content">
         <input type="search" id="search" placeholder="Search items...">
-        <ul id="itemList" data-role="listview" data-inset="true">
-            <!-- Items will be dynamically added here -->
-            <li><a href="#" data-id="1">Treadmill</a></li>
-            <li><a href="#" data-id="2">Exercise Bike</a></li>
-            <li><a href="#" data-id="3">Dumbles 5kg</a></li>
+        <!-- Container for items -->
+        <div id="itemContainer">
+            <!-- Each div displays one image and the price -->
+            <div class="item-container"><a href="#" data-id="1"><img src="treadmill1.jpg" class="item-image" alt="Treadmill"><div class="item-details"><h2 class="item-title">Treadmill</h2><p class="item-price">$999.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="2"><img src="bike1.jpg" class="item-image" alt="Exercise Bike"><div class="item-details"><h2 class="item-title">Exercise Bike</h2><p class="item-price">$799.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="3"><img src="dumb1.jpg" class="item-image" alt="Dumbbells 5kg"><div class="item-details"><h2 class="item-title">Dumbbells 5kg</h2><p class="item-price">$150.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="4"><img src="dumb12.jpg" class="item-image" alt="Dumbbells 10kg"><div class="item-details"><h2 class="item-title">Dumbbells 10kg</h2><p class="item-price">$200.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="5"><img src="mat1.jpg" class="item-image" alt="Gym Mats"><div class="item-details"><h2 class="item-title">Gym Mats</h2><p class="item-price">$50.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="6"><img src="spin1.jpg" class="item-image" alt="Spinning Bike"><div class="item-details"><h2 class="item-title">Spinning Bike</h2><p class="item-price">$90.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="7"><img src="sqat1.png" class="item-image" alt="Squat Racks"><div class="item-details"><h2 class="item-title">Squat Racks</h2><p class="item-price">$3550.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="8"><img src="glue1.jpeg" class="item-image" alt="Flooring Glue"><div class="item-details"><h2 class="item-title">Flooring Glue</h2><p class="item-price">$10.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="9"><img src="stair1.png" class="item-image" alt="Stairmaster"><div class="item-details"><h2 class="item-title">Stairmaster</h2><p class="item-price">$6550.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="10"><img src="plats.jpeg" class="item-image" alt="Black Bumper Plate Bundle"><div class="item-details"><h2 class="item-title">Black Bumper Plate Bundle</h2><p class="item-price">$320.00</p></div></a></div>
             <!-- Add more items here -->
-        </ul>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h4>Contact Information:</h4>
+        <p>For emergencies, contact us at: <a href="tel:+353899440920">+353 899440920</a></p>
+        <p>Visit us at: 09 Fitness Avenue, Dublin, Ireland</p>
     </div>
 </div>
 
 <div data-role="page" id="itemPage">
     <div data-role="header">
-        <a href="#homepage" data-icon="back">Back</a>
+        <a href="#homepage" data-icon="back" class="ui-btn-back">Back</a>
         <h1>Item Details</h1>
     </div>
     <div data-role="content" id="itemDetails">
@@ -94,41 +50,6 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script>
-    $(document).ready(function() {
-        var items = [
-            { id: 1, name: "Treadmill", price: 999, rating: 4.5, details: "Lorem ipsum...", images: ["treadmill1.jpg", "treadmill2.jpg"], videos: [] },
-            { id: 2, name: "Exercise Bike", price: 799, rating: 4.0, details: "Lorem ipsum...", images: ["bike1.jpg", "bike2.jpg"], videos: [] },
-            { id: 3, name: "dumbles5kg", price: 150, rating: 4.5, details: "Lorem ipsum...", images: ["dumb1.jpg", "dumb2.jpg"], videos: [] }
-            // Add more items here
-        ];
-
-        $("#itemList").on("click", "a", function() {
-            var itemId = $(this).data("id");
-            var item = items.find(item => item.id === itemId);
-            if (item) {
-                var imagesHtml = item.images.map(image => `<img src="${image}" alt="${item.name}">`).join('');
-                $("#itemDetails").html(`
-                    <h2>${item.name}</h2>
-                    <p>Price: $${item.price}</p>
-                    <p>Rating: ${item.rating}</p>
-                    <p>${item.details}</p>
-                    <div>
-                        <h3>Images</h3>
-                        ${imagesHtml}
-                    </div>
-                `);
-                $.mobile.changePage("#itemPage");
-            }
-        });
-
-        $("#search").on("keyup", function() {
-            var query = $(this).val().toLowerCase();
-            var filteredItems = items.filter(item => item.name.toLowerCase().includes(query));
-            displayItems(filteredItems);
-        });
-    });
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
