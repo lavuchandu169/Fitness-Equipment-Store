@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Equipment Store</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div data-role="page" id="homepage">
+    <div data-role="header">
+        <h1>Fitness Equipment Store</h1>
+    </div>
+    <div data-role="content">
+        <input type="search" id="search" placeholder="Search items...">
+        <!-- Container for items -->
+        <div id="itemContainer">
+            <!-- Each div displays one image and the price -->
+            <div class="item-container"><a href="#" data-id="1"><img src="treadmill1.jpg" class="item-image" alt="Treadmill"><div class="item-details"><h2 class="item-title">Treadmill</h2><p class="item-price">$999.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="2"><img src="bike1.jpg" class="item-image" alt="Exercise Bike"><div class="item-details"><h2 class="item-title">Exercise Bike</h2><p class="item-price">$799.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="3"><img src="dumb1.jpg" class="item-image" alt="Dumbbells 5kg"><div class="item-details"><h2 class="item-title">Dumbbells 5kg</h2><p class="item-price">$150.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="4"><img src="dumb12.jpg" class="item-image" alt="Dumbbells 10kg"><div class="item-details"><h2 class="item-title">Dumbbells 10kg</h2><p class="item-price">$200.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="5"><img src="mat1.jpg" class="item-image" alt="Gym Mats"><div class="item-details"><h2 class="item-title">Gym Mats</h2><p class="item-price">$50.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="6"><img src="spin1.jpg" class="item-image" alt="Spinning Bike"><div class="item-details"><h2 class="item-title">Spinning Bike</h2><p class="item-price">$90.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="7"><img src="sqat1.png" class="item-image" alt="Squat Racks"><div class="item-details"><h2 class="item-title">Squat Racks</h2><p class="item-price">$3550.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="8"><img src="glue1.jpeg" class="item-image" alt="Flooring Glue"><div class="item-details"><h2 class="item-title">Flooring Glue</h2><p class="item-price">$10.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="9"><img src="stair1.png" class="item-image" alt="Stairmaster"><div class="item-details"><h2 class="item-title">Stairmaster</h2><p class="item-price">$6550.00</p></div></a></div>
+            <div class="item-container"><a href="#" data-id="10"><img src="plats.jpeg" class="item-image" alt="Black Bumper Plate Bundle"><div class="item-details"><h2 class="item-title">Black Bumper Plate Bundle</h2><p class="item-price">$320.00</p></div></a></div>
+            <!-- Add more items here -->
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h4>Contact Information:</h4>
+        <p>For emergencies, contact us at: <a href="tel:+353899440920">+353 899440920</a></p>
+        <p>Visit us at: 09 Fitness Avenue, Dublin, Ireland</p>
+    </div>
+</div>
+
+<div data-role="page" id="itemPage">
+    <div data-role="header">
+        <a href="#homepage" data-icon="back" class="ui-btn-back">Back</a>
+        <h1>Item Details</h1>
+    </div>
+    <div data-role="content" id="itemDetails">
+        <!-- Item details will be dynamically added here -->
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
